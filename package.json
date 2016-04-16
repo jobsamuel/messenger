@@ -1,0 +1,30 @@
+{
+  "name": "messenger",
+  "version": "0.1.0",
+  "description": "A Facebook Messenger Bot demo",
+  "main": "messenger.js",
+  "scripts": {
+    "start": "node messenger.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jobsamuel/messenger.git"
+  },
+  "keywords": [
+    "facebook",
+    "messenger",
+    "bot",
+    "demo"
+  ],
+  "author": "Jobsamuel Núñez <jobsamuel.nunez@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jobsamuel/messenger/issues"
+  },
+  "homepage": "https://github.com/jobsamuel/messenger#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4"
+  }
+}
