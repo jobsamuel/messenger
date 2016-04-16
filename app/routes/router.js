@@ -31,12 +31,18 @@ router.route('/webhook')
       
       if (event.message && event.message.text) {
         const text = event.message.text;
+        let structured = false;
         
         // DEBUG
         console.log(text);
 
+        if (text.toLowerCase() === 'generic') {
+          structured = true;
+          continue;
+        }
+
         // Handle a text message from this sender
-        respond(sender, `Text received, echo: ${text}`, function(error) {
+        respond(sender, `Text received, echo: ${text}`, structured, function(error) {
           if (error) {
             return console.log(error);
           }
