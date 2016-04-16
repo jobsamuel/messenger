@@ -17,10 +17,10 @@ function response(sender, text, structured, callback) {
           "elements": [{
             "title": "First card",
             "subtitle": "Element #1 of an hscroll",
-            "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
+            "image_url": "https://igcdn-photos-c-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/e35/12912561_1579894438988818_1321824229_n.jpg",
             "buttons": [{
               "type": "web_url",
-              "url": "https://www.messenger.com/",
+              "url": "https://www.instagram.com/kblock43/",
               "title": "Web url"
             }, {
               "type": "postback",
@@ -30,7 +30,7 @@ function response(sender, text, structured, callback) {
           },{
             "title": "Second card",
             "subtitle": "Element #2 of an hscroll",
-            "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
+            "image_url": "https://igcdn-photos-a-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/e35/12917868_1319948558022120_1148087543_n.jpg",
             "buttons": [{
               "type": "postback",
               "title": "Postback",

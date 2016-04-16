@@ -18,7 +18,7 @@ router.route('/webhook')
       });
   })
 
-  // A snippet from https://developers.facebook.com/docs/messenger-platform/quickstart
+  // https://developers.facebook.com/docs/messenger-platform/quickstart
   .post(function(req, res) {
     const messaging_events = req.body.entry[0].messaging;
 
