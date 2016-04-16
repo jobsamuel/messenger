@@ -21,13 +21,15 @@ router.route('/webhook')
   .post(function(req, res) {
     const messaging_events = req.body.entry[0].messaging;
 
-    for (i = 0; i < messaging_events.length; i++) {
+    for (let i = 0; i < messaging_events.length; i++) {
       const event = req.body.entry[0].messaging[i];
       const sender = event.sender.id;
       
       if (event.message && event.message.text) {
         const text = event.message.text;
         
+        console.log(text);
+
         // Handle a text message from this sender
       }
     }
