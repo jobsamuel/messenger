@@ -36,9 +36,8 @@ router.route('/webhook')
         // DEBUG
         console.log(text);
 
-        if (text.toLowerCase() === 'generic') {
+        if (text === 'generic') {
           structured = true;
-          continue;
         }
 
         // Handle a text message from this sender
