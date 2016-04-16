@@ -17,8 +17,22 @@ router.route('/webhook')
       });
   })
 
+  // A snippet from https://developers.facebook.com/docs/messenger-platform/quickstart
   .post(function(req, res) {
-    // TODO
+    const messaging_events = req.body.entry[0].messaging;
+
+    for (i = 0; i < messaging_events.length; i++) {
+      const event = req.body.entry[0].messaging[i];
+      const sender = event.sender.id;
+      
+      if (event.message && event.message.text) {
+        const text = event.message.text;
+        
+        // Handle a text message from this sender
+      }
+    }
+
+    res.sendStatus(200);
   });
 
 router.get('/', function(req, res) {
