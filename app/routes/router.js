@@ -50,6 +50,19 @@ router.route('/webhook')
           console.log('A message have been sent!');
         });
       }
+
+      if (event.postback) {
+        const text = JSON.stringify(event.postback);
+
+        respond(sender, `Postback received, echo: ${text}`, false, function(error) {
+          if (error) {
+            return console.log(error);
+          }
+
+          // DEBUG
+          console.log('A message have been sent!');
+        });
+      }
     }
 
     res.sendStatus(200);
