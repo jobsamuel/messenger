@@ -49,20 +49,23 @@ function response(text) {
     case 'BUY_OZE9U5':
       data = {
         "attachment": {
-          "template_type": "receipt",
-          "recipient_name": "Messenger User",
-          "order_number": "oze9u5q9zdhppa1ry7m18yhi2x3k62",
-          "currency": "USD",
-          "payment_method": "Visa 1234",
-          "timestamp": Date.now(),
-          "elements": [{
-            "title": "White Castle",
-            "subtitle": "by Yuri Shwedoff",
-            "quantity": 1,
-            "price": 19
-          }],
-          "summary": {
-            "total_cost": 19
+          "type": "template",
+          "payload": {
+            "template_type": "receipt",
+            "recipient_name": "Messenger User",
+            "order_number": "oze9u5q9zdhppa1ry7m18yhi2x3k62",
+            "currency": "USD",
+            "payment_method": "Visa 1234",
+            "timestamp": Date.now(),
+            "elements": [{
+              "title": "White Castle",
+              "subtitle": "by Yuri Shwedoff",
+              "quantity": 1,
+              "price": 19
+            }],
+            "summary": {
+              "total_cost": 19
+            }
           }
         }
       };
@@ -72,20 +75,23 @@ function response(text) {
     case 'BUY_1OKJIY':
       data = {
         "attachment": {
-          "template_type": "receipt",
-          "recipient_name": "Messenger User",
-          "order_number": "1okjiy5b0tdeu4uz1wu5xwsuato9u3",
-          "currency": "USD",
-          "payment_method": "Master Card 1234",
-          "timestamp": Date.now(),
-          "elements": [{
-            "title": "Sun",
-            "subtitle": "by Yuri Shwedoff",
-            "quantity": 1,
-            "price": 19
-          }],
-          "summary": {
-            "total_cost": 19
+          "type": "template",
+          "payload": {
+            "template_type": "receipt",
+            "recipient_name": "Messenger User",
+            "order_number": "1okjiy5b0tdeu4uz1wu5xwsuato9u3",
+            "currency": "USD",
+            "payment_method": "Master Card 1234",
+            "timestamp": Date.now(),
+            "elements": [{
+              "title": "Sun",
+              "subtitle": "by Yuri Shwedoff",
+              "quantity": 1,
+              "price": 19
+            }],
+            "summary": {
+              "total_cost": 19
+            }
           }
         }
       };
