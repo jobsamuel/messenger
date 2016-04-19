@@ -5,6 +5,16 @@ const respond = require('./../respond/response');
 const router = express.Router();
 const TOKEN = process.env.VERIFY_TOKEN;
 
+// Callback
+const callback = function(error) {
+  if (error) {
+    return console.log(error);
+  }
+
+  // DEBUG
+  console.log('A message have been sent!');
+}
+
 router.route('/webhook')
   .get(function(req, res) {
     if (req.query['hub.verify_token'] === TOKEN) {
@@ -17,8 +27,7 @@ router.route('/webhook')
         message: 'Wrong validation token.'
       });
   })
-
-  // https://developers.facebook.com/docs/messenger-platform/quickstart
+  
   .post(function(req, res) {
     const messaging_events = req.body.entry[0].messaging;
 
@@ -41,27 +50,13 @@ router.route('/webhook')
         }
 
         // Handle a text message from this sender
-        respond(sender, `Text received, echo: ${text}`, structured, function(error) {
-          if (error) {
-            return console.log(error);
-          }
-
-          // DEBUG
-          console.log('A message have been sent!');
-        });
+        respond(sender, `Text received, echo: ${text}`, structured, callback);
       }
 
       if (event.postback) {
-        const text = JSON.stringify(event.postback);
+        const text = event.postback.payload;
 
-        respond(sender, `Postback received, echo: ${text}`, false, function(error) {
-          if (error) {
-            return console.log(error);
-          }
-
-          // DEBUG
-          console.log('A message have been sent!');
-        });
+        respond(sender, `Postback received, echo: ${text}`, false, callback);
       }
     }
 
