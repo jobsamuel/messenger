@@ -1,0 +1,7 @@
+{
+  "name": "messenger",
+  "description": "A Facebook Messenger Bot demo",
+  "repository": "https://github.com/jobsamuel/messenger",
+  "success_url": "/",
+  "keywords": ["facebook", "messenger", "bot"]
+}
