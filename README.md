@@ -1,5 +1,7 @@
 # messenger
-> A Facebook Messenger Bot demo.
+> A Facebook Messenger Bot demo
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/jobsamuel/messenger/tree/master)
 
 ## pre-requisites
 
