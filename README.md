@@ -15,7 +15,7 @@ $ export MESSENGER_TOKEN="your-messenger-token"
 $ npm start
 ```
 
-> **NOTE:** If you decided to use your own server, due to Messenger Platform wouldn't allow you to setup an IP as webhook, you would need to configure a domain pointing to your app and a SSL certificate.
+> **NOTE:** If you decided to use your own server, due to Messenger Platform wouldn't allow you to point your webhook to an IP, you would need to configure a domain with a SSL certificate and then point your app to it.
 
 ## tutorial
 
