@@ -48,9 +48,11 @@ function response(text) {
     
     case 'image':
       data = {
-        type: 'image',
-        payload: {
-          url: 'http://i.imgur.com/1WuDC6y.jpg'
+        attachment: {
+          type: 'image',
+          payload: {
+            url: 'http://i.imgur.com/1WuDC6y.jpg'
+          }
         }
       };
 
