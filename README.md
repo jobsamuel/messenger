@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Ranks/emojione/master/assets/png_512x512/1f916.png" alt="Zap" width="50" height="50"/> <img src="https://raw.githubusercontent.com/Ranks/emojione/master/assets/png_512x512/26a1.png" alt="Zap" width="50" height="50"/>
+
 # messenger
 > A Facebook Messenger Bot demo
 
