@@ -4,7 +4,7 @@ const request = require('request');
 const response = require('./response');
 const TOKEN  = process.env.MESSENGER_TOKEN;
 
-function respond(sender, text, structured, callback) {
+function respond(sender, text, callback) {
   const config = {
     url: 'https://graph.facebook.com/v2.6/me/messages',
     qs: {
