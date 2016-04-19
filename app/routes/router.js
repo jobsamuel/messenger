@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const respond = require('./../respond/response');
+const respond = require('./../respond');
 const router = express.Router();
 const TOKEN = process.env.VERIFY_TOKEN;
 
@@ -27,7 +27,7 @@ router.route('/webhook')
         message: 'Wrong validation token.'
       });
   })
-  
+
   .post(function(req, res) {
     const messaging_events = req.body.entry[0].messaging;
 
@@ -40,23 +40,22 @@ router.route('/webhook')
       
       if (event.message && event.message.text) {
         const text = event.message.text;
-        let structured = false;
         
         // DEBUG
         console.log(text);
 
-        if (text === 'generic') {
-          structured = true;
-        }
-
-        // Handle a text message from this sender
-        respond(sender, `Text received, echo: ${text}`, structured, callback);
+        // Handle response.
+        respond(sender, text, callback);
       }
 
       if (event.postback) {
         const text = event.postback.payload;
 
-        respond(sender, `Postback received, echo: ${text}`, false, callback);
+        // DEBUG
+        console.log(text);
+
+        // Handle response.
+        respond(sender, text, callback);
       }
     }
 

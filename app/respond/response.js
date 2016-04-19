@@ -1,73 +1,68 @@
 'use strict';
 
-const request = require('request');
-const TOKEN  = process.env.MESSENGER_TOKEN;
+function response(text) {
+  let data;
 
-function response(sender, text, structured, callback) {
-  let messageData = {
-    text: text
-  };
-
-  if (structured) {
-    messageData = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "First card",
-            "subtitle": "Element #1 of an hscroll",
-            "image_url": "https://igcdn-photos-c-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/e35/12912561_1579894438988818_1321824229_n.jpg",
-            "buttons": [{
-              "type": "web_url",
-              "url": "https://www.instagram.com/kblock43/",
-              "title": "Web url"
-            }, {
-              "type": "postback",
-              "title": "Postback",
-              "payload": "Payload for first element in a generic bubble",
-            }],
-          },{
-            "title": "Second card",
-            "subtitle": "Element #2 of an hscroll",
-            "image_url": "https://igcdn-photos-a-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/e35/12917868_1319948558022120_1148087543_n.jpg",
-            "buttons": [{
-              "type": "postback",
-              "title": "Postback",
-              "payload": "Payload for second element in a generic bubble",
-            }],
-          }]
+  switch(text) {
+    case 'generic':
+      data = {
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "generic",
+            "elements": [{
+              "title": "White Castle",
+              "subtitle": "by Yuri Shwedoff",
+              "image_url": "http://i.imgur.com/rVLUkXM.jpg",
+              "buttons": [{
+                "type": "web_url",
+                "url": "http://www.yurishwedoff.gallery/oze9u5q9zdhppa1ry7m18yhi2x3k62",
+                "title": "View"
+              },
+              {
+                "type": "postback",
+                "title": "Buy",
+                "payload": "BUY_OZE9U5",
+              }]
+            },
+            {
+              "title": "Sun",
+              "subtitle": "by Yuri Shwedoff",
+              "image_url": "http://i.imgur.com/sVlPgD6.jpg",
+              "buttons": [{
+                "type": "web_url",
+                "url": "http://www.yurishwedoff.gallery/1okjiy5b0tdeu4uz1wu5xwsuato9u3",
+                "title": "View"
+              },
+              {
+                "type": "postback",
+                "title": "Buy",
+                "payload": "BUY_1OKJIY",
+              }],
+            }]
+          }
         }
+      };
+
+      break;
+    
+    case 'image':
+      data = {
+        type: 'image',
+        payload: {
+          url: 'http://i.imgur.com/1WuDC6y.jpg'
+        }
+      };
+
+      break;
+
+    default:
+      data = {
+        text: 'We used to look up at the sky and wonder at our place in the stars. Now we just look down, and worry about our place in the dirt.'
       }
-    };
   }
 
-  const config = {
-    url: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: {
-      access_token: TOKEN
-    },
-    method: 'POST',
-    json: {
-      recipient: { 
-        id: sender 
-      },
-      message: messageData,
-    }
-  };
-  
-  request(config, function(error, response, body) {
-    if (error || response.body.error) {
-      const _error = new Error();
-      _error.message = 'Sending message failed.';
-      _error.details = error || response.body.error;
-      
-      return callback(_error);
-    }
-
-    // DEBUG
-    console.log(body);
-  });
+  return data;
 }
 
 module.exports = response;
