@@ -1,5 +1,7 @@
 'use strict';
 
+const crypto = require('crypto');
+
 function response(text) {
   let data;
 
@@ -53,7 +55,7 @@ function response(text) {
           "payload": {
             "template_type": "receipt",
             "recipient_name": "Messenger User",
-            "order_number": "oze9u5q9zdhppa1ry7m18yhi2x3k62",
+            "order_number": crypto.randomBytes(64).toString('hex'),
             "currency": "USD",
             "payment_method": "Visa 1234",
             "timestamp": Date.now(),
@@ -79,7 +81,7 @@ function response(text) {
           "payload": {
             "template_type": "receipt",
             "recipient_name": "Messenger User",
-            "order_number": "1okjiy5b0tdeu4uz1wu5xwsuato9u3",
+            "order_number": crypto.randomBytes(64).toString('hex'),
             "currency": "USD",
             "payment_method": "Master Card 1234",
             "timestamp": Date.now(),
