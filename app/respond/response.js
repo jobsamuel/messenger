@@ -112,6 +112,39 @@ function response(text) {
 
       break;
 
+    case 'options':
+      data = {
+        text: 'How far would you like to go?',
+        quick_replies:[
+          {
+            content_type: 'text',
+            title: 'Galaxy',
+            payload: 'OPTION_GHJK'
+          },
+          {
+            content_type: 'text',
+            title: 'Solar System',
+            payload: 'OPTION_VBNM'
+          }
+        ]
+      };
+
+      break;
+
+    case 'are you alive?':
+      data = {
+        sender_action: 'typing_on'
+      }
+
+      break;
+
+    case 'hey?':
+      data = {
+        sender_action: 'typing_off'
+      }
+
+      break;
+
     default:
       data = {
         text: 'We used to look up at the sky and wonder at our place in the stars. Now we just look down, and worry about our place in the dirt.'

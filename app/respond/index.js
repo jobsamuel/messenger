@@ -14,10 +14,17 @@ function respond(sender, text, callback) {
     json: {
       recipient: { 
         id: sender 
-      },
-      message: response(text)
+      }
     }
   };
+
+  const rt = response(text);
+
+  if (rt.sender_action) {
+    config.json.sender_action = rt.sender_action;
+  } else {
+    config.json.message = rt;
+  }
   
   request(config, function(error, response, body) {
     if (error || response.body.error) {
