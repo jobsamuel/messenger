@@ -145,6 +145,31 @@ function response(text) {
 
       break;
 
+    case 'persistent menu':
+      data = {
+        setting_type : 'call_to_actions',
+        thread_state : 'existing_thread',
+        call_to_actions: [
+          {
+            type: 'postback',
+            title: 'Help',
+            payload: 'MENU_HELP'
+          },
+          {
+            type: 'postback',
+            title: 'Place New Order',
+            payload: 'MENU_NEW_ORDER'
+          },
+          {
+            type: 'web_url',
+            title: 'View Website',
+            url: 'http://www.yurishwedoff.gallery'
+          }
+        ]
+      };
+
+      break;
+
     default:
       data = {
         text: 'We used to look up at the sky and wonder at our place in the stars. Now we just look down, and worry about our place in the dirt.'

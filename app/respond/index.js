@@ -22,6 +22,9 @@ function respond(sender, text, callback) {
 
   if (rt.sender_action) {
     config.json.sender_action = rt.sender_action;
+  } else if (rt.setting_type) {
+    config.url = 'https://graph.facebook.com/v2.6/me/thread_settings'
+    config.json = rt;
   } else {
     config.json.message = rt;
   }
